@@ -1,59 +1,30 @@
 body {
-  background-color: #0d1117;
+  background-color: #ffffff;
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  color: #c9d1d9;
+  color: #000000;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   display: flex;
   justify-content: center;
 }
 
 .terminal {
   width: 100%;
-  max-width: 850px;
-  background-color: #010409;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 0 1px #30363d;
+  max-width: 800px;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: none;
   overflow: hidden;
 }
 
 .terminal-bar {
-  background-color: #161b22;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #30363d;
-}
-
-.dots {
-  display: flex;
-  gap: 8px;
-}
-
-.dot {
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.red { background-color: #ff5f56; }
-.yellow { background-color: #ffbd2e; }
-.green { background-color: #27c93f; }
-
-.title {
-  margin: 0 auto;
-  color: #8b949e;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  display: none; /* Hide the fake window bar for PDF printing */
 }
 
 .terminal-body {
-  padding: 20px 25px;
-  font-size: 14px;
-  line-height: 1.6;
+  padding: 20px;
+  font-size: 11.5px; /* Scaled down slightly to fit on one A4 page */
+  line-height: 1.4;
 }
 
 pre {
@@ -63,90 +34,100 @@ pre {
 }
 
 .prompt {
-  color: #7ee787;
+  color: #000000;
   font-weight: bold;
 }
 
 .path {
-  color: #79c0ff;
+  color: #000000;
   font-weight: bold;
 }
 
 .command {
-  color: #d2a8ff;
+  color: #000000;
   font-weight: bold;
 }
 
 .output {
-  color: #c9d1d9;
+  color: #000000;
   padding-left: 10px;
-  margin-bottom: 15px;
-  border-left: 2px solid #30363d;
+  margin-bottom: 12px;
+  border-left: 1px solid #000000; /* Subtle line to denote command output */
 }
 
 .highlight {
-  color: #ff7b72;
   font-weight: bold;
 }
 
 .tech-tag {
-  color: #a5d6ff;
-  background: rgba(56, 139, 253, 0.1);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  border: 1px solid rgba(56, 139, 253, 0.4);
+  background: #f0f0f0;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 0.95em;
+  border: 1px solid #cccccc;
 }
 
 a {
-  color: #58a6ff;
-  text-decoration: none;
-  border-bottom: 1px dashed #58a6ff;
-}
-
-a:hover {
-  color: #79c0ff;
-  border-bottom: 1px solid #79c0ff;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .cursor {
-  display: inline-block;
-  width: 8px;
-  height: 15px;
-  background-color: #c9d1d9;
-  animation: blink 1s step-end infinite;
-  vertical-align: middle;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  display: none; /* No blinking cursor in PDF */
 }
 
 .ascii-art {
-  color: #7ee787;
-  font-size: 12px;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-shadow: 0 0 5px rgba(126, 231, 135, 0.3);
+  font-size: 10px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .section-title {
-  color: #d2a8ff;
   font-weight: bold;
   text-transform: uppercase;
-  margin-top: 10px;
+  margin-top: 5px;
   display: inline-block;
+  text-decoration: underline;
 }
 
 ul {
-  margin: 5px 0 15px 0;
+  margin: 4px 0 10px 0;
   padding-left: 20px;
   list-style-type: none;
 }
 
 li::before {
-  content: "➜ ";
-  color: #7ee787;
-  margin-right: 8px;
+  content: "> ";
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+/* Print specific styles to ensure perfect A4 rendering */
+@page {
+  size: A4 portrait;
+  margin: 10mm 15mm;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .terminal {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* Prevent page breaks inside sections */
+  .output {
+    page-break-inside: avoid;
+  }
 }
