@@ -3,59 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patryk Kozłowski - Terminal CV</title>
+  <title>Patryk Kozłowski - Interactive Terminal CV</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="terminal">
     <div class="terminal-bar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="title">patryk@cv:~</span>
+      <div class="dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <span class="title">patryk@internship-hunter:~</span>
     </div>
     <div class="terminal-body">
-      <pre>
-<span class="prompt">>_</span> <span class="command">whoami</span>
-Patryk Kozłowski - Software Engineer Intern
-<span class="prompt">>_</span> <span class="command">email</span>
-pkozlowski@student.agh.edu.pl
-<span class="prompt">>_</span> <span class="command">links</span>
-GitHub: <a href="https://github.com/UmarlyPoeta" target="_blank">https://github.com/UmarlyPoeta</a>  
-LinkedIn: <a href="https://linkedin.com/in/patrykkozlowskisoftawedeveloper" target="_blank">https://linkedin.com/in/patrykkozlowskisoftawedeveloper</a>
-<span class="prompt">>_</span> <span class="command">skills --languages --tools --concepts</span>
-Languages: Java, Python, C++, C, Bash, SQL, HTML/CSS  
-Tools: Git, Nginx, Docker, ROS2, Linux, SolidWorks  
-Concepts: OOP, FSMs, Machine Learning, Navigation, <br>Concurrency, Data Structures
-<span class="prompt">>_</span> <span class="command">education</span>
-2024–Now — BSc in Computer Science in Engineering, AGH UST, Kraków  
-Focus: Algorithms, Systems Programming, Computer Architecture
-<span class="prompt">>_</span> <span class="command">projects --list</span>
-Python:
-• My-Grep — CLI tool in Python mimicking grep — <a href="https://github.com/UmarlyPoeta/My-Grep" target="_blank">My-Grep</a>
-• Perla Bot — Python FPV UGV with object detection, QR detection<br> and GPS — <a href="https://github.com/UmarlyPoeta/dual_tech_konkurs_kod" target="_blank">dual_tech_konkurs_kod</a>
-• Task Manager — CLI task tracking in Python — <a href="https://github.com/UmarlyPoeta/TaskManager" target="_blank">TaskManager</a>
-• File Organizer — Script to sort files by type — <a href="https://github.com/UmarlyPoeta/File_Organizer" target="_blank">File_Organizer</a>
-C++:
-• AGH RPG Game — SFML game in C++ set on campus — <a href="https://github.com/UmarlyPoeta/agh_rpg_game" target="_blank">agh_rpg_game</a>
-• Shell-Cpp — terminal emulator written in C++ with<br> Linux unistd API — <a href="https://github.com/UmarlyPoeta/shell-cpp" target="_blank">Shell-Cpp</a>
-• NetSimCpp — C++ network simulator with REST API,<br> JWT authentication, YAML scenarios and tests — <a href="https://github.com/UmarlyPoeta/inzynieria_oprogramowania" target="_blank">NetSimCpp</a>
-Java:
-• Library Management System — JavaFX app for managing<br> library resources — <a href="https://github.com/UmarlyPoeta/LibrarySystem" target="_blank">LibrarySystem</a>
-<span class="prompt">>_</span> <span class="command">experience</span>
-11.2024–Now — AGH Solar Boat Project (Software Team)  
-• Developed FSMs for autonomous UGV control using C++  
-• Built navigation stack in ROS2 and decision tree system  
-• Contributed to implementing obstacle avoidance and path planning
-11.2025–Now — Industrial Data Science  
-• Developed simulation model for LIF neurons using LTSpice  
-• Worked on the construction of a breadboard prototype<br> PCB for low-energy consumption applications  
-• Performed data analysis for correct values for components<br> in the circuit
-<span class="prompt">>_</span> <span class="command">profile --about</span>
-Passionate about embedded systems, software engineering, and robotics.  
-Enjoys retro computing, DIY electronics, and 3D printing.
-<span class="prompt">>_</span> <span class="command">exit</span>
-      </pre>
+<pre class="ascii-art">
+ ____       _               _     _  __          _                 _    _ 
+|  _ \ __ _| |_ _ __ _   _| | __| |/ /___ ____ | | _____      _____| | _(_)
+| |_) / _` | __| '__| | | | |/ /| ' // _ \_  / | |/ _ \ \ /\ / / __| |/ / |
+|  __/ (_| | |_| |  | |_| |   < | . \ (_) / /  | | (_) \ V  V /\__ \   <| |
+|_|   \__,_|\__|_|   \__, |_|\_\|_|\_\___/___| |_|\___/ \_/\_/ |___/_|\_\_|
+                     |___/                                                  
+</pre>
+      
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">whoami --verbose</span></div>
+      <div class="output">
+        Name:     <span class="highlight">Patryk Kozłowski</span>
+        Role:     Software Engineer Intern
+        Email:    pkozlowski@student.agh.edu.pl
+        GitHub:   <a href="https://github.com/UmarlyPoeta" target="_blank">github.com/UmarlyPoeta</a>
+        LinkedIn: <a href="https://linkedin.com/in/patrykkozlowskisoftawedeveloper" target="_blank">linkedin.com/in/patrykkozlowskisoftawedeveloper</a>
+      </div>
+
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">cat skills.json | jq .</span></div>
+      <div class="output">
+        {
+          "<span class="highlight">languages</span>":   [<span class="tech-tag">C++</span>, <span class="tech-tag">Python</span>, <span class="tech-tag">C</span>, <span class="tech-tag">Java</span>, <span class="tech-tag">Bash</span>, <span class="tech-tag">SQL</span>],
+          "<span class="highlight">tools</span>":       [<span class="tech-tag">Git</span>, <span class="tech-tag">Docker</span>, <span class="tech-tag">ROS2</span>, <span class="tech-tag">Linux</span>, <span class="tech-tag">Nginx</span>, <span class="tech-tag">SolidWorks</span>],
+          "<span class="highlight">frameworks</span>":  [<span class="tech-tag">OpenGL 3.3 Core</span>, <span class="tech-tag">GLFW</span>, <span class="tech-tag">SFML</span>, <span class="tech-tag">JavaFX</span>],
+          "<span class="highlight">concepts</span>":    ["OOP", "Machine Learning", "Concurrency", "FSMs", "Navigation"]
+        }
+      </div>
+
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">history | grep "experience"</span></div>
+      <div class="output">
+        <span class="section-title">AGH Solar Boat Project (Software Team)</span> | <span class="highlight">11.2024 – Present</span>
+        <ul>
+          <li>Engineered <span class="tech-tag">C++</span> Finite State Machines (FSMs) for autonomous UGV control.</li>
+          <li>Architected and deployed a navigation stack utilizing <span class="tech-tag">ROS2</span> and decision trees.</li>
+          <li>Designed algorithms for real-time obstacle avoidance and path planning.</li>
+        </ul>
+        
+        <span class="section-title">Industrial Data Science Research</span> | <span class="highlight">11.2024 – Present</span>
+        <ul>
+          <li>Programmed a complex simulation model for LIF (Leaky Integrate-and-Fire) neurons using <span class="tech-tag">LTSpice</span>.</li>
+          <li>Prototyped breadboard PCBs optimized for ultra-low energy consumption applications.</li>
+          <li>Executed advanced data analysis to determine precise component tolerances.</li>
+        </ul>
+      </div>
+
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">ls -l ./projects</span></div>
+      <div class="output">
+        <span class="highlight">drwxr-xr-x</span> <span class="tech-tag">C/C++ & Embedded</span>
+        <ul>
+          <li><a href="https://github.com/UmarlyPoeta/dual-tech-2026" target="_blank">Dual-Tech-2026</a> - Competition framework for autonomous UAV & tracked UGV (GPS search/classification).</li>
+          <li><a href="https://github.com/UmarlyPoeta/shell-cpp" target="_blank">Shell-Cpp</a> - Custom UNIX terminal emulator built from scratch using Linux unistd API.</li>
+          <li><a href="https://github.com/UmarlyPoeta/inzynieria_oprogramowania" target="_blank">NetSimCpp</a> - Network simulator with REST API, JWT auth, and YAML scenario parsing.</li>
+          <li><a href="https://github.com/UmarlyPoeta/computer-graphics-lab" target="_blank">OpenGL-Renderer</a> - 3D engine built using Modern OpenGL (3.3 Core Profile) and GLFW.</li>
+        </ul>
+
+        <span class="highlight">drwxr-xr-x</span> <span class="tech-tag">Python & AI</span>
+        <ul>
+          <li><a href="https://github.com/UmarlyPoeta/openclaw_voice_to_voice" target="_blank">Voice-To-Voice AI</a> - Offline assistant pipeline: ThinkPad (Mic+Wake) → Tailscale → RPi4 (OpenClaw+Piper TTS).</li>
+          <li><a href="https://github.com/UmarlyPoeta/dual_tech_konkurs_kod" target="_blank">Perla Bot</a> - FPV UGV code featuring YOLOv8 object detection, QR scanning, and GPS.</li>
+        </ul>
+      </div>
+
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">cat education.txt</span></div>
+      <div class="output">
+        <span class="highlight">BSc in Computer Science in Engineering</span>
+        AGH University of Science and Technology, Kraków
+        <span class="tech-tag">Expected Graduation: 2028</span>
+        Focus: Algorithms, Systems Programming, Computer Architecture, Embedded Systems
+      </div>
+
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">echo $MOTIVATION</span></div>
+      <div class="output">
+        "Seeking an internship where I can apply my low-level programming skills, 
+         passion for embedded systems, and robotics experience to real-world challenges. 
+         I thrive in terminal environments and love building things from scratch."
+      </div>
+      
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="cursor"></span></div>
     </div>
   </div>
 </body>
