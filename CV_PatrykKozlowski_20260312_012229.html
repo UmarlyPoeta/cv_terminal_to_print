@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patryk Kozłowski - Interactive Terminal CV</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; font-family: 'Fira Code', monospace; }
+    .terminal { background: #0d1117; border-radius: 12px; width: 100%; max-width: 900px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); overflow: hidden; }
+    .terminal-bar { background: #21262d; padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #30363d; }
+    .dots { display: flex; gap: 8px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ff5f57; }
+    .dot.yellow { background: #febc2e; }
+    .dot.green { background: #28c840; }
+    .title { color: #8b949e; font-size: 13px; margin: 0 auto; }
+    .terminal-body { padding: 24px; color: #c9d1d9; font-size: 14px; line-height: 1.8; }
+    .ascii-art { color: #58a6ff; font-size: 11px; margin-bottom: 24px; line-height: 1.3; overflow-x: auto; }
+    .prompt { color: #3fb950; font-weight: 700; }
+    .path { color: #58a6ff; }
+    .command { color: #c9d1d9; }
+    .output { margin: 4px 0 20px 0; padding-left: 0; color: #8b949e; }
+    .output ul { list-style: none; padding-left: 16px; }
+    .output ul li { margin: 4px 0; }
+    .output ul li::before { content: "→ "; color: #3fb950; }
+    .highlight { color: #c9d1d9; font-weight: 500; }
+    .tech-tag { color: #f0883e; }
+    .section-title { color: #58a6ff; font-weight: 700; display: block; margin-top: 12px; margin-bottom: 4px; }
+    a { color: #58a6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .cursor { display: inline-block; width: 8px; height: 16px; background: #c9d1d9; animation: blink 1s step-end infinite; vertical-align: middle; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <span class="title">patryk@internship-hunter:~</span>
+    </div>
+    <div class="terminal-body">
+<pre class="ascii-art">
+ ____       _               _     _  __          _                 _    _ 
+|  _ \ __ _| |_ _ __ _   _| | __| |/ /___ ____ | | _____      _____| | _(_)
+| |_) / _` | __| '__| | | | |/ /| ' // _ \_  / | |/ _ \ \ /\ / / __| |/ / |
+|  __/ (_| | |_| |  | |_| |   < | . \ (_) / /  | | (_) \ V  V /\__ \   <| |
+|_|   \__,_|\__|_|   \__, |_|\_\|_|\_\___/___| |_|\___/ \_/\_/ |___/_|\_\_|
+                     |___/
+</pre>
+
+      <div><span class="prompt">patryk@internship-hunter</span>:<span class="path">~</span>$ <span class="command">whoami --verbose</span></div>
+      <div class="output">
+        Name:     <span class="highlight">Patryk Kozłowski</span>
+        Role:     Software Engineer Intern
+        Email:    pkozlowski@student.agh.edu.pl
+        GitHub:   <a href="https://github.com/UmarlyPoeta" target="_blank">github.com/UmarlyPoeta</a>
+        LinkedIn: <a href="https://linkedin.com/in/patrykkozlowskisoftawedeveloper" target="_blank">linkedin.com/in/patrykkozlowskisoftawedeveloper</a>
+      </div>
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="command">cat objective.txt</span></div>
+      <div class="output">
+        <p class="output"></p>
+      </div>
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="command">cat skills.json | jq .</span></div>
+      <div class="output">
+                {
+          "<span class="highlight">languages</span>":   [],
+          "<span class="highlight">tools</span>":       [],
+          "<span class="highlight">frameworks</span>":  [],
+          "<span class="highlight">concepts</span>":    []
+        }
+      </div>
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="command">history | grep "experience"</span></div>
+      <div class="output">
+        <span class="section-title">AGH Solar Boat Project (Software Team)</span> | <span class="highlight">11.2024 – Present</span>
+        <ul>
+          <li>Engineered <span class="tech-tag">C++</span> Finite State Machines (FSMs) for autonomous UGV control.</li>
+          <li>Architected and deployed a navigation stack utilizing <span class="tech-tag">ROS2</span> and decision trees.</li>
+          <li>Designed algorithms for real-time obstacle avoidance and path planning.</li>
+          <li>Implemented a comprehensive behavior tree with custom nodes for RoboBoat competition.</li>
+        </ul>
+
+        <span class="section-title">Industrial Data Science Research</span> | <span class="highlight">11.2024 – Present</span>
+        <ul>
+          <li>Programmed a complex simulation model for LIF (Leaky Integrate-and-Fire) neurons using <span class="tech-tag">LTSpice</span>.</li>
+          <li>Prototyped breadboard PCBs optimized for ultra-low energy consumption applications.</li>
+          <li>Executed advanced data analysis to determine precise component tolerances.</li>
+        </ul>
+      </div>
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="command">ls -l ./projects</span></div>
+      <div class="output">
+        
+      </div>
+
+      
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="command">cat education.txt</span></div>
+      <div class="output">
+        <span class="highlight">BSc in Computer Science in Engineering</span>
+        AGH University of Science and Technology, Kraków
+        <span class="tech-tag">Expected Graduation: 2028</span>
+        Focus: Algorithms, Systems Programming, Computer Architecture, Embedded Systems
+      </div>
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="command">echo $MOTIVATION</span></div>
+      <div class="output">
+        ""
+      </div>
+
+      <div><span class="prompt">patryk@cs-student</span>:<span class="path">~</span>$ <span class="cursor"></span></div>
+    </div>
+  </div>
+</body>
+</html>
